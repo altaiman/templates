@@ -1,0 +1,1104 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900')
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900,300,700')
+
+/* var */
+$mainTextColor = #506a85
+$advanceTextColor = #73879c
+$bannerTextColor = #a3b1bf
+$hoverColor = #0ebfa2
+$SourceSansPro = 'Source Sans Pro', sans-serif
+$Lato = Lato, sans-serif
+$sliderCount = 5  // Колличество слайдов в баннере
+$transitionSpeed = .3s
+
+a
+  text-decoration none
+
+ul
+  list-style none
+  margin 0
+  padding 0
+
+.caption
+  font-family $Lato
+  font-size 44px
+  color $mainTextColor
+  transition all $transitionSpeed
+
+.text
+  font-family $SourceSansPro
+  font-size 22px
+  color $advanceTextColor
+  transition all $transitionSpeed
+
+.header, .banner, .works, footer
+  min-width 320px
+
+
+/* header */
+
+.container
+  position relative
+  max-width 1200px
+  min-width 320px
+  margin 0 auto
+
+  &.inner
+      padding 80px 0
+
+
+.scroll
+  padding 35px 0
+  width 100%
+  background-color white
+
+.header
+  font-family $SourceSansPro
+  font-size 12px
+  color $mainTextColor
+
+  &__top
+    min-height 40px
+    background-color #f5f7fa
+    border-bottom 1px solid #e6e9ed
+
+  &__bottom
+    min-height 112px
+
+  .info-block, .social-block
+    position absolute
+    display inline-block
+    margin 0
+    padding 12px 20px
+    list-style none
+
+  .info-block
+    left 0
+
+    &__element
+      display inline-block
+      margin-right 2.4em
+
+      .fa
+        margin-right 5px
+
+      &_link
+        color inherit
+
+        &:hover
+          color $hoverColor
+
+  .social-block
+    right 0
+    margin-right .8em
+    padding 0
+
+    &__element
+      display inline-block
+      float left
+
+      &_link
+        position relative
+        display inline-block
+        width 30px
+        height 40px
+        text-align center
+        line-height 40px
+        cursor pointer
+
+        &.fb:hover, &.gp:hover, &.tw:hover,
+        &.pi:hover, &.be:hover, &.dr:hover
+          color white
+          transition all $transitionSpeed
+          transform rotate(360deg)
+
+        &.fb:hover
+          background-color #4668b3
+
+        &.gp:hover
+          background-color #de5745
+
+        &.tw:hover
+          background-color #2fbbed
+
+        &.pi:hover
+          background-color #d94348
+
+        &.be:hover
+          background-color #3079ff
+
+        &.dr:hover
+          background-color #eb6397
+
+  .logotype-header
+    margin-left 1.7em
+    transition transform $transitionSpeed * 2
+
+  .menu
+    display inline-block
+    float right
+    font-size 15px
+    font-weight 900
+
+  .menu__items, .dropdown-menu
+    margin 12px 0
+
+  .dropdown-menu
+    display none
+
+  .menu__item
+    display inline-block
+    padding 0 20px
+    transition all $transitionSpeed
+
+    &_link
+      text-transform uppercase
+      color $mainTextColor
+
+      &:hover
+        color $hoverColor
+
+  .search
+    position relative
+    padding-left 1em
+
+    &__field
+      width 10em
+      border none
+
+    &__but
+      position relative
+      color inherit
+      background none
+      border none
+
+      &:hover
+        color $hoverColor
+        cursor pointer
+
+/* banner */
+
+.banner
+  position relative
+  width 100%
+  height 880px
+  text-align center
+
+  &:active
+    cursor move
+
+  &:hover > .paginator
+    bottom 50px
+    opacity 1
+
+  &:hover > .btn-next, &:hover > .btn-prev
+    opacity .5
+
+  &:hover > .btn-next
+    right 1.5em
+
+  &:hover > .btn-prev
+    left 1.5em
+
+  .btn-next:hover, .btn-prev:hover
+    opacity 1
+
+  .banner-visible
+    height inherit
+    overflow hidden
+
+  &__items
+    position relative
+    right 0 // позиция слайдера s-1 === 0 / s-2 === 100% / s-3 === 200% / etc.
+    width 100% * $sliderCount
+    height inherit
+    transition all $transitionSpeed
+
+  &__item
+    width (@width / $sliderCount)
+    display table
+    position relative
+    float left
+    height inherit
+
+    & .container
+      position relative
+      display table
+      width 100%
+
+    .caption
+      margin auto
+      font-size 78px
+      font-weight 900
+      letter-spacing .05em
+      text-transform uppercase
+      color white
+      cursor default
+
+    .text
+      display block
+      margin 1em auto 2.5em
+      font-size 24px
+      letter-spacing .04em
+      line-height 1.4
+      color $bannerTextColor
+      cursor default
+      transition all $transitionSpeed
+
+    &_fig
+      display table-cell
+      height 880px
+      vertical-align middle
+      transition all $transitionSpeed
+
+  &__item-s1
+    text-align center
+    background url('../images/banner/banner-s1.jpg') no-repeat center
+
+    .text
+      width 42em
+
+  &__item-s2
+    background url('../images/banner/banner-s2.jpg') no-repeat center
+
+    .banner__item_fig
+      text-align right
+
+    .caption
+      margin-right 0
+      width 12em
+
+    .text
+      margin-right 0
+      width 36em
+      color white
+
+  &__item-s3
+    text-align left
+    background url('../images/banner/banner-s3.jpg') no-repeat center
+
+    .caption
+      margin-left 0
+      width 10em
+
+    .beauty
+      left .5em
+
+      &::before, &::after
+        left -.5em
+
+      &::before
+        top 7px
+        width 7em
+
+      &::after
+        bottom 5px
+        width 9.5em
+
+    .text
+      margin-left 0
+      width 32em
+      color $mainTextColor
+
+  &__item-s4
+    text-align right
+    background url('../images/banner/banner-s4.jpg') no-repeat center
+
+    .banner__item_fig
+      vertical-align top
+
+    .caption
+      margin-top 1em
+      margin-right 0
+      width 10em
+
+    .beauty
+      right .5em
+
+      &::before, &::after
+        right -.5em
+
+      &::before
+        top 7px
+        width 9.2em
+
+      &::after
+        bottom 5px
+        width 10.6em
+
+    .text
+      margin-right 0
+      width 32em
+      color white
+
+  &__item-s5
+    text-align center
+    background url('../images/banner/banner-s5.jpg') no-repeat center
+
+    .banner__item_fig
+      vertical-align top
+
+    .caption
+      margin-top 1em
+      width 9em
+
+    .text
+      width 30em
+      color $bannerTextColor
+
+  .beauty
+    position relative
+    z-index 1
+    font-size 73px
+    line-height 1.8
+
+    &::before, &::after
+      position absolute
+      z-index -1
+      display inline-block
+      padding 20px 0
+      height 83px
+      content ''
+      background-color $mainTextColor
+
+
+  .paginator
+    bottom 25px
+    padding 10px
+    background-color white
+    border-radius 4px
+    opacity 0
+
+/* title-block */
+
+.title-block
+  text-align center
+  letter-spacing .05em
+
+  .caption
+    font-family $Lato
+    font-size 44px
+    color $mainTextColor
+
+  .text
+    width 38.4em
+    margin auto
+    font-family $SourceSansPro
+    font-size 22px
+    line-height 1.5
+    color $advanceTextColor
+
+/* who-we-are */
+
+.features
+  padding 4em 0
+  text-align justify
+
+  &::after
+    display inline-block
+    content ''
+    width 100%
+    height 0
+
+
+.feature-box
+  display inline-block
+  padding 0 .5em
+  transition all $transitionSpeed
+
+  &__side
+    float left
+    display inline-block
+    width 100px
+    color $hoverColor
+
+  &__content
+    float left
+    display inline-block
+    text-align left
+    width 17em
+
+  .caption
+    margin .25em 0
+    font-size 26px
+
+  .text
+    font-size 16px
+    line-height 1.6
+
+/* latest works */
+
+.works
+  background-color #f2f5f7
+
+  &__latest
+    padding 50px 0
+    text-align justify
+
+    &::after
+      display inline-block
+      content ''
+      width 100%
+      height 0
+
+  .inner
+    padding 60px 0
+
+  .work-box
+    position relative
+    display inline-block
+    margin auto
+    text-align center
+    border 1px solid #e6e9ed
+    border-bottom-width 2px
+    border-radius 4px
+
+    &__img
+      display block
+      transition opacity $transitionSpeed
+
+    &__link
+      position relative
+      display inline-block
+      width inherit
+      height inherit
+      text-align center
+      color inherit
+      background-color $hoverColor
+      overflow hidden
+
+      &:hover > img
+        opacity .1
+
+      &:hover > i
+        transform scale(2)
+        opacity 1
+
+      &:hover + .caption
+        color $hoverColor
+
+    i
+      position absolute
+      top 0
+      left 0
+      right 0
+      bottom 0
+      margin auto
+      height 10%
+      color white
+      opacity 0
+      transition all $transitionSpeed
+
+    .caption
+      padding-top 20px
+      font-size 20px
+      font-weight 700
+
+    .text
+      width 100%
+      padding-bottom 20px
+      font-size 14px
+
+/* carousel */
+
+.carousel-visible
+  overflow hidden
+  width 100%
+  height 185px
+  text-align justify
+
+.carousel
+  padding 20px 0
+  text-align center
+
+  &__list
+    position relative
+    bottom 100%
+    font-size 0
+    opacity 1
+    transition opacity $transitionSpeed
+
+    &::after
+      display inline-block
+      content ''
+      width 100%
+      height 0
+
+  &__item
+    position relative
+    display inline-block
+    height 185px
+    cursor pointer
+    text-align center
+    background-color $hoverColor
+
+    &:hover > img
+      opacity .1
+
+  &__item-img
+    position relative
+    z-index 1
+    transition opacity $transitionSpeed
+
+  &__item-title, &__item-text
+    display inline-block
+    position absolute
+    top 0
+    left 0
+    right 0
+    margin auto
+    color white
+
+  &__item-title
+    top 40%
+    font-family $Lato
+    font-size 16px
+
+  &__item-text
+    top 55%
+    font-family $SourceSansPro
+    font-size 14px
+
+/* get in touch */
+
+.get-in-touch
+  .inner
+    padding 125px 0
+
+  .caption
+    margin 25px 0
+
+  .text
+    margin 36px auto
+
+  .btn
+    padding 1.2em 2em
+    font-size 15px
+
+
+/* footer */
+
+.footer
+  &__top
+    text-align justify
+    background-color #2f4052
+
+  &__bottom
+    padding 20px 0
+    font-family $SourceSansPro
+    font-size 15px
+    color #707e8c
+    background-color #283645
+
+  .f-box
+    padding 50px 0 70px 1.4em
+    display inline-block
+    width 17em
+    vertical-align top
+    text-align left
+    color #a3b1bf
+    transition all $transitionSpeed
+
+    &__title
+      margin 24px 0
+      font-family $Lato
+      font-weight 700
+      font-size 16px
+      letter-spacing .1em
+      text-transform uppercase
+      color #fff
+
+    &__text
+      font-family $SourceSansPro
+      font-size 14px
+      line-height 1.6
+      letter-spacing .03em
+
+    &__img
+      width 125px
+      height 85px
+      transition opacity $transitionSpeed
+
+    &__link
+      display block
+      margin 5px 0
+      font-family $SourceSansPro
+      font-size 14px
+      color inherit
+
+      &.bold
+        font-size 15px
+        font-weight 700
+
+      &.ico-right i
+        position relative
+        left 3px
+        transform scale(.75)
+        transition left $transitionSpeed
+
+      &.ico-left i
+        display inline-block
+        margin-right 5px
+        width 15px
+        text-align center
+
+      &:hover
+        color $hoverColor
+
+      &:hover i
+        left 8px
+
+    &__link-img
+      position relative
+      display inline-block
+      width 125px
+      height 85px
+      text-align center
+      background-color $hoverColor
+
+      i
+        position absolute
+        top 0
+        left 0
+        right 0
+        bottom 0
+        margin auto
+        height 10%
+        color white
+        opacity 0
+        transition all $transitionSpeed
+
+      &:hover i
+        left 0
+        opacity 1
+        transform scale(2)
+
+      &:hover img
+        opacity .1
+
+  .inner
+    padding 10px 0
+
+  &__menu
+    position absolute
+    right 0
+    margin 0 10px
+    display inline-block
+
+    &_item
+      display inline-block
+
+      &::after
+        position relative
+        bottom .2em
+        margin 0 .5em
+        display inline
+        content '.'
+
+      &:last-child::after
+        display none
+
+    &_item-link
+      color inherit
+
+      &:hover
+        color $hoverColor
+
+  .copyright
+    margin 1em
+
+/* subscribe form */
+
+.subscribe
+  position relative
+
+  &__body
+    z-index 0
+    position absolute
+    top -5px
+    width 17em
+    height 30px
+    display block
+    padding .3em 0
+    text-align center
+    background-color #4e5c6c
+    border-radius 4px
+    transition background-color $transitionSpeed
+
+
+  &__input
+    position relative
+    z-index 1
+    top 2px
+    width 10.6em
+    padding .25em .75em
+    font-family $SourceSansPro
+    font-size 14px
+    text-align center
+    color inherit
+    background none
+    border none
+
+    &:focus
+      outline none
+
+    &:focus ~ label
+      background-color #596675
+
+  .btn
+    position relative
+    z-index 1
+    padding .5em 1em
+    font-size 13px
+
+/* others */
+
+.logotype
+  transition opacity $transitionSpeed
+
+  &:hover
+    opacity .5
+
+.clearfix:after
+  content ''
+  display table
+  clear both
+
+.fixed
+  position fixed
+  z-index 9999
+  top -1px
+  padding 0
+
+  & > logotype
+    transform scale(2)
+
+/* buttons */
+
+.btn
+  padding 1.2em 4em
+  font-family $SourceSansPro
+  font-size 18px
+  font-weight 700
+  line-height 1
+  text-transform uppercase
+  color white
+  background-color #00bc9c
+  border none
+  border-bottom 2px solid #00a085
+  border-radius 4px
+  transition all $transitionSpeed
+
+  &:hover
+    cursor pointer
+    background-color #17a78b
+    border-color #148e76
+
+.btn-next, .btn-prev
+  position absolute
+  z-index 1
+  top 50% - 5px
+  padding 10px 20px
+  cursor pointer
+  color $bannerTextColor
+  background rgba(80,106,133,0.3)
+  border none
+  border-radius 2px
+  opacity 0
+  transition all $transitionSpeed
+
+  &:hover
+    color $hoverColor
+    background-color $mainTextColor
+
+  &:focus
+    outline none
+
+.btn-next
+  right 0
+  padding-left 25px
+
+.btn-prev
+  left 0
+  padding-right 25px
+
+
+
+/* paginator */
+
+.paginator
+  position relative
+  z-index 1
+  display inline-block
+  margin 30px auto
+  text-align center
+  cursor default
+  transition all $transitionSpeed
+
+.paginator-rad
+  display none
+
+  &:checked + label
+    background-color $hoverColor
+
+.paginator-rad-x
+  display inline-block
+  margin 0 .25em
+  width 15px
+  height 15px
+  cursor pointer
+  content ''
+  background-color $mainTextColor
+  border-radius 100%
+  transition all $transitionSpeed
+
+  &:hover
+    background-color $hoverColor
+
+/* adaptive */
+
+@media (min-width 2000px)
+  .banner:hover > .btn-next
+    right 10em
+
+  .banner:hover > .btn-prev
+    left 10em
+
+  .btn-next, .btn-prev
+    transform scale(2)
+
+@media (max-width 1200px)
+  .container
+    width 95%
+
+  .header
+    .menu__item
+      padding 0 5px
+
+    .menu__item:last-child
+      padding 0 20px
+
+  .banner
+    .container
+      width 90%
+
+  .feature-box
+    text-align center
+    margin 0 auto
+
+    &__side
+      float none
+      display block
+      margin 0 auto
+      width 64px
+
+    &__content
+      float none
+      text-align center
+
+  .works__latest
+    text-align center
+
+  .carousel
+    margin 0 1em
+
+  .footer
+    &__top
+      text-align center
+
+    .f-box
+      padding 50px 4em
+
+@media (max-width 1000px)
+  .header
+    .menu__item
+      padding 0 4px
+
+      &:last-child
+        padding 0
+
+    .search__field
+      display none
+
+  .banner
+    .caption
+      font-size 54px
+
+    .text
+      width 100%
+      font-size 22px
+
+    &__item-s4, &__item-s5
+      .caption
+        margin-top 2em
+
+    .beauty::before, .beauty::after
+      height 49px
+
+
+  .who-we-are
+    .title-block
+      .text
+        width 100%
+
+  .feature-box
+    display block
+    padding 1em 0
+
+    &__side
+      width 100%
+      font-size 24px
+
+    &__content
+      width 34em
+
+    .caption
+      font-size 36px
+
+    .text
+      font-size 26px
+
+  .works
+    .text
+      width 90%
+
+    .work-box
+      .caption
+        font-size 24px
+
+      .text
+        font-size 18px
+
+  .get-in-touch
+    .text
+      width 100%
+
+  .footer
+    &__bottom
+      font-size 17px
+
+    .f-box
+      transform scale(1.2)
+
+
+@media (max-width 760px)
+  .title-block
+    .caption
+      font-size 36px
+
+    .text
+      font-size 18px
+
+  .header
+    text-align center
+
+    .info-block
+      display none
+
+    .social-block
+      position relative
+
+    .logotype-header
+      display block
+      margin auto
+      padding-bottom 1em
+
+    .menu
+      display block
+      float none
+      font-size 18px
+      letter-spacing 1px
+      background-color rgb(245, 247, 250)
+
+      &__items
+        margin 1em 3em
+
+      &__item
+        display block
+        border-bottom 1px solid rgb(230, 233, 237)
+
+        &:last-child
+          padding 1em 0
+
+        &_link
+          display block
+          padding 1em 0
+
+          &:hover
+            background-color rgba(255, 255, 255, .3)
+
+      .search
+        padding 0
+
+        &__field
+          width 70%
+          height 2.5em
+          display inline-block
+          border inherit
+
+  .banner
+    height 440px
+
+    .banner__item_fig
+      height 440px
+      padding 0 1em
+
+    .banner__item-s1, .banner__item-s2, .banner__item-s3,
+    .banner__item-s4, .banner__item-s5
+      background-position-y -250px
+
+    .banner__item-s4
+      padding-top 2em
+
+    .caption
+      font-size 24px
+
+    .beauty::before, .beauty::after
+      height 0
+
+    .text
+      font-size 12px
+
+  .feature-box
+    &__content
+      width 100%
+
+    .text
+      font-size 18px
+
+  .works
+    .work-box
+      &__img
+        width 100%
+
+  .carousel-visible
+    transform scale(.9)
+
+  .btn
+    font-size 12px
+
+  .btn-next, .btn-prev
+    top auto
+    bottom 1em
+    transform scale(.75)
+
+  .footer
+    .f-box
+      margin auto
+      padding 1em 0
+      display block
+      transform scale(1)
+
+      &:last-child
+        padding-bottom 2em
+
+    &__bottom
+      text-align center
+
+    &__menu
+      display none
+
+@media (max-width 605px)
+  .carousel-visible
+    text-align center
+
